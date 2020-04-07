@@ -2,6 +2,7 @@ import React from 'react';
 import GridHeader from './header/GridHeader';
 import GridRow from './row/GridRow';
 import {classNamer} from '@luisgilgb/react-utils';
+import './Grid.css';
 
 const DEFAULT_CLASS_NAME = 'reactgrid';
 

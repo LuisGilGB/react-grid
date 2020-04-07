@@ -25,6 +25,10 @@ const GridRow = props => {
                     key={c.columnKey}
                     value={item[c.columnKey]}
                     item={item}
+                    width={c.width}
+                    minWidth={c.minWidth}
+                    maxWidth={c.maxWidth}
+                    flex={c.flex}
                     renderFn={c.renderFn}
                 />
             ))}

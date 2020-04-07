@@ -18,6 +18,10 @@ const GridHeader = props => {
                     <GridCell
                         key={c.columnKey}
                         value={c.title}
+                        width={c.width}
+                        minWidth={c.minWidth}
+                        maxWidth={c.maxWidth}
+                        flex={c.flex}
                     />
                 ))}
             </tr>

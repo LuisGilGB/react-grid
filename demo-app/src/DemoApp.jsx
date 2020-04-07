@@ -24,15 +24,19 @@ function DemoApp() {
                 columns={[
                     {
                         columnKey: 'countryId',
-                        title: 'Country ID'
+                        title: 'Country ID',
+                        width: 120
                     },
                     {
                         columnKey: 'shortName',
-                        title: 'Country short name'
+                        title: 'Country short name',
+                        width: 180
                     },
                     {
                         columnKey: 'name',
                         title: 'Country name',
+                        minWidth: 300,
+                        flex: 1,
                         renderFn: (value, item) => value.es
                     }
                 ]}

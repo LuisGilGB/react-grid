@@ -7,6 +7,10 @@ const GridCell = props => {
     const {
         value,
         item,
+        width,
+        minWidth,
+        maxWidth,
+        flex,
         renderFn,
         onClick
     } = props;
@@ -18,6 +22,12 @@ const GridCell = props => {
     return (
         <td
             className={classNamer(DEFAULT_CLASS_NAME, props.className)}
+            style={{
+                width,
+                minWidth,
+                maxWidth,
+                flex
+            }}
             onClick={onCellClick}
         >
             {renderFn ? renderFn(value, item) : value}
