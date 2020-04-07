@@ -1,26 +1,40 @@
 import React from 'react';
-import './Grid.css';
+import GridHeader from './header/GridHeader';
+import GridRow from './row/GridRow';
+import {classNamer} from '@luisgilgb/react-utils';
 
-const DEFAULT_CLASS_NAME = 'react-grid';
+const DEFAULT_CLASS_NAME = 'reactgrid';
 
 const Grid = props => {
     const {
-        children,
-        className = '',
-        style,
-        onClick,
-        ...otherProps
+        data = [],
+        columns,
+        className,
+        onItemClick
     } = props;
 
+    const onRowClick = (item) => {
+        return () => {
+            onItemClick && onItemClick(item);
+        }
+    }
+
     return (
-        <div
-            {...otherProps}
-            className={`${DEFAULT_CLASS_NAME} ${className}`.trim()}
-            style={style}
-            onClick={onClick}
+        <table
+            className={classNamer(DEFAULT_CLASS_NAME, className)}
         >
-            {children}
-        </div>
+            <GridHeader columns={columns} />
+            <tbody>
+                {data.map((item, index) => (
+                    <GridRow
+                        key={index}
+                        item={item}
+                        cells={columns}
+                        onClick={onRowClick(item)}
+                    />
+                ))}
+            </tbody>
+        </table>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import GridCell from '../cell/GridCell';
-import {getClassName} from '@luisgilgb/react-utils';
+import {classNamer} from '@luisgilgb/react-utils';
 
 const DEFAULT_CLASS_NAME = 'reactgrid-row';
 
@@ -17,13 +17,15 @@ const GridRow = props => {
 
     return (
         <tr
-            className={getClassName(DEFAULT_CLASS_NAME, props.className)}
+            className={classNamer(DEFAULT_CLASS_NAME, props.className)}
             onClick={onRowClick}
         >
             {cells.map(c => (
                 <GridCell
-                    key={c.fieldName}
-                    value={item[c.fieldName]}
+                    key={c.columnKey}
+                    value={item[c.columnKey]}
+                    item={item}
+                    renderFn={c.renderFn}
                 />
             ))}
         </tr>

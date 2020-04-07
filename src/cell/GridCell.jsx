@@ -1,11 +1,13 @@
 import React from 'react';
-import {getClassName} from '@luisgilgb/react-utils';
+import {classNamer} from '@luisgilgb/react-utils';
 
 const DEFAULT_CLASS_NAME = 'reactgrid-cell';
 
 const GridCell = props => {
     const {
         value,
+        item,
+        renderFn,
         onClick
     } = props;
 
@@ -15,10 +17,10 @@ const GridCell = props => {
 
     return (
         <td
-            className={getClassName(DEFAULT_CLASS_NAME, props.className)}
+            className={classNamer(DEFAULT_CLASS_NAME, props.className)}
             onClick={onCellClick}
         >
-            {value}
+            {renderFn ? renderFn(value, item) : value}
         </td>
     );
 }
