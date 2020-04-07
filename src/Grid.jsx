@@ -11,7 +11,10 @@ const Grid = props => {
         data = [],
         columns,
         className,
-        onItemClick
+        headerHeight,
+        rowHeight,
+        onItemClick,
+        onCellClick
     } = props;
 
     const onRowClick = (item) => {
@@ -24,14 +27,19 @@ const Grid = props => {
         <table
             className={classNamer(DEFAULT_CLASS_NAME, className)}
         >
-            <GridHeader columns={columns} />
+            <GridHeader
+                columns={columns}
+                height={headerHeight}
+            />
             <tbody>
                 {data.map((item, index) => (
                     <GridRow
                         key={index}
                         item={item}
                         cells={columns}
+                        height={rowHeight}
                         onClick={onRowClick(item)}
+                        onCellClick={onCellClick}
                     />
                 ))}
             </tbody>

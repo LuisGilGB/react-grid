@@ -8,6 +8,7 @@ const GridCell = props => {
         value,
         item,
         width,
+        height,
         minWidth,
         maxWidth,
         flex,
@@ -24,6 +25,7 @@ const GridCell = props => {
             className={classNamer(DEFAULT_CLASS_NAME, props.className)}
             style={{
                 width,
+                height,
                 minWidth,
                 maxWidth,
                 flex

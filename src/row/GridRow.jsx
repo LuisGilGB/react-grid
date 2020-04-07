@@ -8,7 +8,9 @@ const GridRow = props => {
     const {
         item,
         cells = [],
-        onClick
+        height,
+        onClick,
+        onCellClick
     } = props;
 
     const onRowClick = () => {
@@ -26,10 +28,12 @@ const GridRow = props => {
                     value={item[c.columnKey]}
                     item={item}
                     width={c.width}
+                    height={height}
                     minWidth={c.minWidth}
                     maxWidth={c.maxWidth}
                     flex={c.flex}
                     renderFn={c.renderFn}
+                    onClick={onCellClick}
                 />
             ))}
         </tr>

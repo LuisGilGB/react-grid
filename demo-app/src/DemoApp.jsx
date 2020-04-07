@@ -40,6 +40,8 @@ function DemoApp() {
                         renderFn: (value, item) => value.es
                     }
                 ]}
+                headerHeight={80}
+                rowHeight={50}
             />
         </div>
     );
