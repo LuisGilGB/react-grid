@@ -40,5 +40,8 @@
   "peerDependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
+  },
+  "dependencies": {
+    "@luisgilgb/react-utils": "^0.2.2"
   }
 }
