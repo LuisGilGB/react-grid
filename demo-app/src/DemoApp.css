@@ -22,3 +22,15 @@
 .app-body {
   overflow: auto;
 }
+
+.reactcontainer {
+  display: block;
+}
+
+.reactcontainer.reactcontainer-rowflex {
+  display: flex;
+}
+
+.reactcontainer.reactcontainer-rowflex-item {
+  display: block;
+}

@@ -16,8 +16,8 @@ const GridCell = props => {
         onClick
     } = props;
 
-    const onCellClick = () => {
-        onClick && onClick(value);
+    const onCellClick = (...eventParams) => {
+        onClick && onClick(value, ...eventParams);
     }
 
     return (

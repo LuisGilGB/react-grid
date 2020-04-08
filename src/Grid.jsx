@@ -29,16 +29,15 @@ const Grid = props => {
         ...otherProps
     } = props;
 
-    const matchSelection = (item, key) => item[key] === selection;
+    const isSelectedRow = (item, index) => {
+        const matchSelection = key => item[key] === selection;
+        const selectByKey = key => matchSelection(isNonEmptyString(key) ? key : 'id');
+    
+        return !!(isFunction(selectBy) ? selectBy(selection, item, index) : selectByKey(selectBy));
+    }
 
-    const selectByKey = (item, key) => matchSelection(item, isNonEmptyString(key) ? key : 'id');
-
-    const isSelectedRow = (item, index) => !!(isFunction(selectBy) ? selectBy(selection, item, index) : selectByKey(item, selectBy));
-
-    const onRowClick = (item) => {
-        return () => {
-            onItemClick && onItemClick(item);
-        }
+    const onRowClick = (item) => () => {
+        onItemClick && onItemClick(item);
     }
 
     return (

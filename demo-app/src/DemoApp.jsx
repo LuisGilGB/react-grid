@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from '@luisgilgb/react-container';
 import Grid from '../../src/Grid';
 import {DEMO_DATA} from './consts';
 import './DemoApp.css';
 
-function DemoApp() {
+const DemoApp = props => {
+    const [selection, setSelection] = useState('it');
+    const [allowPropagation, setAllowPropagation] = useState(true);
+
     return (
         <Container
             className="app"
@@ -28,7 +31,7 @@ function DemoApp() {
             >
                 <Grid
                     data={DEMO_DATA}
-                    selection="it"
+                    selection={selection}
                     selectBy="countryId"
                     columns={[
                         {
@@ -52,11 +55,34 @@ function DemoApp() {
                     flex={1}
                     headerHeight={80}
                     rowHeight={50}
+                    onItemClick={(item) => {
+                        setSelection(item.countryId);
+                    }}
+                    onCellClick={(value, e) => {
+                        !allowPropagation && e.stopPropagation();
+                        console.log(value);
+                    }}
                 />
                 <Container
-                    minWidth={300}
+                    minWidth={400}
                 >
-                    Cosa
+                    <button
+                        onClick={() => {
+                            setSelection('es');
+                        }}
+                    >
+                        Selecciona España
+                    </button>
+                    <button
+                        onClick={() => {
+                            setAllowPropagation(!allowPropagation);
+                        }}
+                        style={{
+                            color: allowPropagation ? 'green' : 'red'
+                        }}
+                    >
+                        {`Click propagation from cell to row ${allowPropagation ? 'allowed' : 'forbidden'}, click to toggle`}
+                    </button>
                 </Container>
             </Container>
         </Container>
