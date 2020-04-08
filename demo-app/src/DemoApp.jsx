@@ -1,11 +1,14 @@
 import React from 'react';
+import Container from '@luisgilgb/react-container';
 import Grid from '../../src/Grid';
 import {DEMO_DATA} from './consts';
 import './DemoApp.css';
 
 function DemoApp() {
     return (
-        <div className="app">
+        <Container
+            className="app"
+        >
             <header className="app-header">
                 <p>
                     Edit <code>src/DemoApp.js</code> and save to reload.
@@ -19,31 +22,36 @@ function DemoApp() {
                     Learn React
                 </a>
             </header>
-            <Grid
-                data={DEMO_DATA}
-                columns={[
-                    {
-                        columnKey: 'countryId',
-                        title: 'Country ID',
-                        width: 120
-                    },
-                    {
-                        columnKey: 'shortName',
-                        title: 'Country short name',
-                        width: 180
-                    },
-                    {
-                        columnKey: 'name',
-                        title: 'Country name',
-                        minWidth: 300,
-                        flex: 1,
-                        renderFn: (value, item) => value.es
-                    }
-                ]}
-                headerHeight={80}
-                rowHeight={50}
-            />
-        </div>
+            <Container
+                layout="colflex"
+            >
+                <Grid
+                    data={DEMO_DATA}
+                    columns={[
+                        {
+                            columnKey: 'countryId',
+                            title: 'Country ID',
+                            width: 120
+                        },
+                        {
+                            columnKey: 'shortName',
+                            title: 'Country short name',
+                            width: 180
+                        },
+                        {
+                            columnKey: 'name',
+                            title: 'Country name',
+                            minWidth: 300,
+                            flex: 1,
+                            renderFn: (value) => value.es
+                        }
+                    ]}
+                    flex={1}
+                    headerHeight={80}
+                    rowHeight={50}
+                />
+            </Container>
+        </Container>
     );
 }
 
