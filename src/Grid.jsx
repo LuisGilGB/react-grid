@@ -1,6 +1,7 @@
 import React from 'react';
 import GridHeader from './header/GridHeader';
 import GridRow from './row/GridRow';
+import {isNonEmptyString, isFunction} from '@luisgilgb/js-utils';
 import {classNamer} from '@luisgilgb/react-utils';
 import './Grid.css';
 
@@ -10,6 +11,8 @@ const Grid = props => {
     const {
         data = [],
         columns,
+        selection,
+        selectBy,
         className,
         width,
         height,
@@ -25,6 +28,12 @@ const Grid = props => {
         onCellClick,
         ...otherProps
     } = props;
+
+    const matchSelection = (item, key) => item[key] === selection;
+
+    const selectByKey = (item, key) => matchSelection(item, isNonEmptyString(key) ? key : 'id');
+
+    const isSelectedRow = (item, index) => !!(isFunction(selectBy) ? selectBy(selection, item, index) : selectByKey(item, selectBy));
 
     const onRowClick = (item) => {
         return () => {
@@ -56,6 +65,7 @@ const Grid = props => {
                     <GridRow
                         key={index}
                         item={item}
+                        selected={isSelectedRow(item, index)}
                         cells={columns}
                         height={rowHeight}
                         onClick={onRowClick(item)}

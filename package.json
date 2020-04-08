@@ -29,7 +29,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
-    "html-webpack-plugin": "^4.0.0-beta.14",
+    "html-webpack-plugin": "^4.0.4",
     "nodemon": "^2.0.2",
     "react": "^16.13.0",
     "react-dev-utils": "^10.2.0",
@@ -44,6 +44,7 @@
     "react-dom": "^16.13.0"
   },
   "dependencies": {
-    "@luisgilgb/react-utils": "^0.2.2"
+    "@luisgilgb/js-utils": "^0.3.2",
+    "@luisgilgb/react-utils": "^0.2.3"
   }
 }

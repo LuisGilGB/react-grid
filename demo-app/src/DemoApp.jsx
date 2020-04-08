@@ -28,6 +28,8 @@ function DemoApp() {
             >
                 <Grid
                     data={DEMO_DATA}
+                    selection="it"
+                    selectBy="countryId"
                     columns={[
                         {
                             columnKey: 'countryId',

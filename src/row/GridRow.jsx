@@ -3,11 +3,13 @@ import GridCell from '../cell/GridCell';
 import {classNamer} from '@luisgilgb/react-utils';
 
 const DEFAULT_CLASS_NAME = 'reactgrid-row';
+const SELECTED_CLASS_NAME = `${DEFAULT_CLASS_NAME}-selected`;
 
 const GridRow = props => {
     const {
         item,
         cells = [],
+        selected = false,
         height,
         onClick,
         onCellClick
@@ -19,7 +21,10 @@ const GridRow = props => {
 
     return (
         <tr
-            className={classNamer(DEFAULT_CLASS_NAME, props.className)}
+            className={classNamer(DEFAULT_CLASS_NAME, props.className, {
+                className: SELECTED_CLASS_NAME,
+                check: selected
+            })}
             onClick={onRowClick}
         >
             {cells.map(c => (

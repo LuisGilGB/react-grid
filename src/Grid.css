@@ -9,5 +9,9 @@ table.reactgrid {
 }
 
 .reactgrid-row:hover {
-    background-color: #CFCFCF;
+    background-color: #DFDFDF;
+}
+
+.reactgrid-row-selected {
+    background-color: #DFDFDF;
 }
