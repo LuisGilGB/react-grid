@@ -23,7 +23,8 @@ function DemoApp() {
                 </a>
             </header>
             <Container
-                layout="colflex"
+                className="app-body"
+                layout="rowflex"
             >
                 <Grid
                     data={DEMO_DATA}
@@ -50,6 +51,11 @@ function DemoApp() {
                     headerHeight={80}
                     rowHeight={50}
                 />
+                <Container
+                    minWidth={300}
+                >
+                    Cosa
+                </Container>
             </Container>
         </Container>
     );

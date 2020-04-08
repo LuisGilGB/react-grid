@@ -11,10 +11,19 @@ const Grid = props => {
         data = [],
         columns,
         className,
+        width,
+        height,
+        minWidth,
+        maxWidth,
+        minHeight,
+        maxHeight,
+        flex,
+        style,
         headerHeight,
         rowHeight,
         onItemClick,
-        onCellClick
+        onCellClick,
+        ...otherProps
     } = props;
 
     const onRowClick = (item) => {
@@ -25,7 +34,18 @@ const Grid = props => {
 
     return (
         <table
+            {...otherProps}
             className={classNamer(DEFAULT_CLASS_NAME, className)}
+            style={{
+                ...style,
+                width,
+                height,
+                minWidth,
+                maxWidth,
+                minHeight,
+                maxHeight,
+                flex
+            }}
         >
             <GridHeader
                 columns={columns}

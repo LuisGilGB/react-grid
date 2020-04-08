@@ -1,5 +1,6 @@
 .app {
   text-align: center;
+  min-height: 100%;
 }
 
 .app-header {
@@ -16,4 +17,8 @@
 
 .app-link {
   color: #09d3ac;
+}
+
+.app-body {
+  overflow: auto;
 }
