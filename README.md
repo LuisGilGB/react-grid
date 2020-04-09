@@ -52,7 +52,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **[author](https://github.com/LuisGilGB)**
+* **[Luis Gil Gutiérrez de la Barreda](https://github.com/LuisGilGB)**
 
 See also the list of [contributors](https://github.com/LuisGilGB/react-grid/contributors) who participated in this project.
 
