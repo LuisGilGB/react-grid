@@ -30,7 +30,7 @@ const Grid = props => {
     } = props;
 
     const isSelectedRow = (item, index) => {
-        // Which one is more performant? Declaring the checker into isSelectedRow (one declaration each row but only when
+        // Which one has better performance? Declaring the checker into isSelectedRow (one declaration each row but only when
         // isSelectedRow is called) or outside this function? I think the second one, but I don't have proofs.
         const checker = (sel) => {
             const matchSelection = key => item[key] === sel;
