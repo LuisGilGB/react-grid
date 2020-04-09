@@ -4,9 +4,32 @@ import Grid from '../../src/Grid';
 import {DEMO_DATA} from './consts';
 import './DemoApp.css';
 
-const DemoApp = props => {
-    const [selection, setSelection] = useState(['it']);
+const DemoApp = () => {
+    const [multiSelection, allowMultiSelection] = useState(false);
+    const [selection, setSelection] = useState('it');
     const [allowPropagation, setAllowPropagation] = useState(true);
+
+    const selectionUpdaters = {
+        single: (item) => {
+            setSelection(item.countryId);
+        },
+        multi: (item) => {
+            const {countryId} = item;
+            selection.includes(countryId) ? setSelection(selection.filter(id => id !== countryId)) : setSelection([...selection, item.countryId]);
+        }
+    }
+
+    const selectionMode = multiSelection ? 'multi' : 'single';
+
+    const selectSpainHandlers = {
+        single: () => {
+            setSelection('es');
+        },
+        multi: (item) => {
+            const {countryId} = item;
+            !selection.includes('es') && setSelection([...selection, 'es']);
+        }
+    }
 
     return (
         <Container
@@ -55,10 +78,7 @@ const DemoApp = props => {
                     flex={1}
                     headerHeight={80}
                     rowHeight={50}
-                    onItemClick={(item) => {
-                        const {countryId} = item;
-                        selection.includes(countryId) ? setSelection(selection.filter(id => id !== countryId)) : setSelection([...selection, item.countryId]);
-                    }}
+                    onItemClick={selectionUpdaters[selectionMode]}
                     onCellClick={(value, e) => {
                         !allowPropagation && e.stopPropagation();
                         console.log(value);
@@ -69,8 +89,15 @@ const DemoApp = props => {
                 >
                     <button
                         onClick={() => {
-                            !selection.includes('es') && setSelection([...selection, 'es']);
+                            const newMultiSelValue = !multiSelection;
+                            allowMultiSelection(newMultiSelValue);
+                            setSelection(newMultiSelValue ? [selection] : selection[0]);
                         }}
+                    >
+                        {`Selection mode at ${selectionMode}, click to toggle`}
+                    </button>
+                    <button
+                        onClick={selectSpainHandlers[selectionMode]}
                     >
                         Selecciona España
                     </button>
