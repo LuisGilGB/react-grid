@@ -5,7 +5,7 @@ import {DEMO_DATA} from './consts';
 import './DemoApp.css';
 
 const DemoApp = props => {
-    const [selection, setSelection] = useState('it');
+    const [selection, setSelection] = useState(['it']);
     const [allowPropagation, setAllowPropagation] = useState(true);
 
     return (
@@ -56,7 +56,8 @@ const DemoApp = props => {
                     headerHeight={80}
                     rowHeight={50}
                     onItemClick={(item) => {
-                        setSelection(item.countryId);
+                        const {countryId} = item;
+                        selection.includes(countryId) ? setSelection(selection.filter(id => id !== countryId)) : setSelection([...selection, item.countryId]);
                     }}
                     onCellClick={(value, e) => {
                         !allowPropagation && e.stopPropagation();
@@ -68,7 +69,7 @@ const DemoApp = props => {
                 >
                     <button
                         onClick={() => {
-                            setSelection('es');
+                            !selection.includes('es') && setSelection([...selection, 'es']);
                         }}
                     >
                         Selecciona España
