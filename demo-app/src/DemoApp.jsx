@@ -54,8 +54,6 @@ const DemoApp = () => {
             >
                 <Grid
                     data={DEMO_DATA}
-                    selection={selection}
-                    selectBy="countryId"
                     columns={[
                         {
                             columnKey: 'countryId',
