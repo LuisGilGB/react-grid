@@ -16,13 +16,13 @@ This component is created for React JS, so you need to use it in a React applica
 Install this component as a dependency from npm.
 
 ```
-npm install <<<Your module's name>>>
+npm install @luisgilgb/react-grid
 ```
 
 Then, in your application it should be enough to import the component as it is usually done in React:
 
 ```
-import Grid from '<<<Your module's name>>>'
+import Grid from '@luisgilgb/react-grid'
 ```
 
 ## Running the tests
@@ -48,13 +48,13 @@ TBD
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/gitUser/react-grid/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/LuisGilGB/react-grid/tags).
 
 ## Authors
 
-* **[author](https://github.com/gitUser)**
+* **[Luis Gil Gutiérrez de la Barreda](https://github.com/LuisGilGB)**
 
-See also the list of [contributors](https://github.com/gitUser/react-grid/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/LuisGilGB/react-grid/contributors) who participated in this project.
 
 ## License
 
